@@ -617,7 +617,8 @@ void CRangeBearingParticleFilter::initializeParticles(size_t M) {
   m_particles.resize(M);
   for (CParticleList::iterator it = m_particles.begin();
        it != m_particles.end(); it++)
-    it->d = new CParticleVehicleData();
+    //it->d= new CParticleVehicleData();
+    it->d.reset ( new CParticleVehicleData());
 
   for (CParticleList::iterator it = m_particles.begin();
        it != m_particles.end(); it++) {
