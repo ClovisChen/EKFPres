@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2017/5/18 12:39
 # @Author  : Yao zijie
-# @Site    : 
+# @Site    : T
 # @File    : main.py
 # @Software: PyCharm Community Edition
 # @Interpreter: Python 3.5.1
@@ -12,7 +12,8 @@ import Feature_caculation as FC
 import Meanshift as meanshift
 import GetRoi as GetRoi
 
-frames_hsv, frames_gray, frames_color = GetRoi.GetFrame('../data/Bouncingball.avi')
+# frames_hsv, frames_gray, frames_color = GetRoi.GetFrame('../data/Bouncingball.avi')
+frames_hsv, frames_gray, frames_color = GetRoi.GetFrame('data/Bouncingball.avi')
 frame_hist_1, q_max_1, ix_1, iy_1, w_1, h_1 = FC.Hist_cal(frames_hsv[0], 197, 56, 17, 14)
 frame_hist_2, q_max_2, ix_2, iy_2, w_2, h_2 = FC.Hist_cal(frames_hsv[0], 193, 78, 16, 13)
 frame_hist_3, q_max_3, ix_3, iy_3, w_3, h_3 = FC.Hist_cal(frames_hsv[0], 190, 96, 14, 13)

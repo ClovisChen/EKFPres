@@ -84,7 +84,7 @@ protected:
   void OnGetAction(KFArray_ACT &out_u) const;
 
   /** Implements the transition model \f$ \hat{x}_{k|k-1} = f(
-   * \hat{x}_{k-1|k-1}, u_k ) \f$
+   * \hat{x}_{k-1|k-1}, u_k ) \f$  状态方程
     * \param in_u The vector returned by OnGetAction.
     * \param inout_x At input has \f$ \hat{x}_{k-1|k-1} \f$, at output must have
    * \f$ \hat{x}_{k|k-1} \f$.

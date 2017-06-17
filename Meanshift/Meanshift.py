@@ -36,9 +36,10 @@ def MeanShift(frame,frame_hist, q_max, ix, iy, w, h,erode_1, erode_2):
     back_projection_img = cv2.threshold(back_projection_img, 230, 255, cv2.THRESH_BINARY)[1]
     back_projection_img = cv2.erode(back_projection_img,
                                     cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (erode_1, erode_2)),
-                                    iterations=2)
-    back_projection_img = cv2.dilate(back_projection_img, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (8, 8)),
-                                     iterations=2)
+                                    iterations=2)  #腐蚀
+    back_projection_img = cv2.dilate(back_projection_img,
+                                    cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (8, 8)),
+                                    iterations=2) #膨胀
     # 保留之前算出的中心位置
     xc_ = int(ix + w // 2)
     yc_ = int(iy + h // 2)

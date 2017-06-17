@@ -45,7 +45,7 @@ def Back_projection_cal(frame_H, frame_hist, q_max):
     :return:
     """
     back_projection_img = np.zeros(frame_H.shape, dtype=np.uint8)
-    for i in range(0, 180, 15):  # 利用numpy的特性高效计算反投影图，不用Python的for循环，提高效率
+    for i in range(0, 180, 15):  # 利用numpy的特性高效计算反投影图，不用Python的for循环，提高效率  循环间隔15
         back_projection_img[(frame_H >= i) & (frame_H < i + 15)] = frame_hist[0][(frame_hist[1] == i)[:12]] * 255 // q_max
     return back_projection_img
 
@@ -76,7 +76,8 @@ def Centroid_Mass_Cal(back_projection_img, ix, iy, w, h):
 
 
 if __name__ == '__main__':
-    frames, frames_gray, frames_color = GetRoi.GetFrame('../data/Bouncingball.avi')
+    # frames, frames_gray, frames_color = GetRoi.GetFrame('../data/Bouncingball.avi')
+    frames, frames_gray, frames_color = GetRoi.GetFrame('data/Bouncingball.avi')
     H = HSV_frame_H_Cal(frames[10])
     frame_hist, q_max, ix, iy, w, h = Hist_cal(frames[0])
     back_projection_img = Back_projection_cal(H, frame_hist, q_max)
